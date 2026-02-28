@@ -1,0 +1,23 @@
+server:
+    port: 8080
+
+spring:
+  application:
+    name: parcial_compiladores
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/club_peleas_db
+    username: postgres
+    password: 5156montes
+    drive-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    sql:
+      init:
+        mode: always
+        continue-on-error: false
