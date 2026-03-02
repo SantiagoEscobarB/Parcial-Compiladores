@@ -39,6 +39,9 @@ public class Peleador {
     @Column (nullable = false)
     private Integer derrotas;
 
+    @Column (nullable = false)
+    private Integer empates;
+
     @Column(nullable = false)
     private Boolean activo;
 }
