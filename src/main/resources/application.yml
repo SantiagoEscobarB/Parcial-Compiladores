@@ -7,7 +7,7 @@ spring:
   datasource:
     url:  jdbc:postgresql://localhost:5432/club_peleas_db
     username: postgres
-    password: 5156montes
+    password: 12345
     drive-class-name: org.postgresql.Driver
   jpa:
     hibernate:
