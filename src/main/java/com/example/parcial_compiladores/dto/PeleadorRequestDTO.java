@@ -10,6 +10,10 @@ import lombok.Data;
  */
 @Data
 public class PeleadorRequestDTO {
+    @NotNull
+    @Min(1)
+    private Long peleadorId;
+
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 2, max = 100)
     private String nombre;
@@ -27,6 +31,15 @@ public class PeleadorRequestDTO {
     @Min(value = 1)
     @Max(value = 100)
     private Integer defensa;
+
+    @NotNull(message = "Las victorias son obligatorias")
+    private Integer victorias;
+
+    @NotNull(message = "Las derrotas son obligatorias")
+    private Integer derrotas;
+
+    @NotNull(message = "Los empates son obligatorias")
+    private Integer empates;
 
     @NotNull(message = "El estado activo es obligatorio")
     private Boolean activo;      // Obligatorio

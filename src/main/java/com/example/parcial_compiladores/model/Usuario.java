@@ -28,7 +28,7 @@ public class Usuario {
     private String password;
 
     @Column(nullable = false, length = 20)
-    private String rol = "USER"; // "USER" o "ADMIN"
+    private String rol = "USER";
 
     @Column(name = "fecha_registro")
     @CreationTimestamp

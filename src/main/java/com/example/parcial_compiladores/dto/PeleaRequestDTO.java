@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
  */
 @Data
 public class PeleaRequestDTO {
+    @NotNull
+    @Min(1)
+    private Long peleaId;
+
     @NotNull(message = "El ID del peleador 1 es obligatorio")
     @Min(1)
     private Long peleador1Id;  // ID del primer peleador
