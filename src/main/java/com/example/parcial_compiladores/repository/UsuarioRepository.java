@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface    UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     // Buscar por username (para login)
     Optional<Usuario> findByUsername(String username);

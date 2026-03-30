@@ -11,7 +11,7 @@ public class Peleador {
     //Datos del peleador
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 100)
     private String nombre;
@@ -34,13 +34,13 @@ public class Peleador {
 
     //Record de peleas
     @Column(nullable = false)
-    private Integer victorias;
+    private Integer victorias = 0;
 
     @Column (nullable = false)
-    private Integer derrotas;
+    private Integer derrotas = 0;
 
     @Column (nullable = false)
-    private Integer empates;
+    private Integer empates = 0;
 
     @Column(nullable = false)
     private Boolean activo;

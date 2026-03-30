@@ -1,6 +1,11 @@
 package com.example.parcial_compiladores.dto;
 
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 /**
@@ -10,8 +15,21 @@ import java.time.LocalDateTime;
  */
 @Data
 public class PeleaRequestDTO {
-
+    @NotNull(message = "El ID del peleador 1 es obligatorio")
+    @Min(1)
     private Long peleador1Id;  // ID del primer peleador
+
+    @NotNull(message = "El ID del peleador 2 es obligatorio")
+    @Min(1)
     private Long peleador2Id;  // ID del segundo peleador
+
+    @NotNull(message = "La fecha es obligatoria")
+    @FutureOrPresent(message = "La fecha no puede ser en el pasado")
     private LocalDateTime fecha; // Fecha/hora de la pelea
+
+    @AssertTrue(message = "Los peleadores deben ser diferentes")
+    private boolean isPeleadoresValidos() {
+        return peleador1Id != null && peleador2Id != null &&
+                !peleador1Id.equals(peleador2Id);
+    }
 }

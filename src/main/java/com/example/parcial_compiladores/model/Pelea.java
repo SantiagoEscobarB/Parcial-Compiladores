@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Pelea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne //Un peleador puede estar en muchas peleas
     @JoinColumn (name = "peleador1_id", nullable=false)
@@ -30,10 +30,10 @@ public class Pelea {
     private Peleador ganador;
 
     @Column (name = "puntos_p1")
-    private Integer puntos_p1;
+    private Integer puntosPeleador1;
 
     @Column (name = "puntos_p2")
-    private Integer puntos_p2;
+    private Integer puntosPeleador2;
 
     @Column(nullable = false)
     private LocalDateTime fecha;

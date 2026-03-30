@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +31,7 @@ public class Usuario {
     private String rol = "USER"; // "USER" o "ADMIN"
 
     @Column(name = "fecha_registro")
+    @CreationTimestamp
     private LocalDateTime fechaRegistro;
 
     @Column(nullable = false)
