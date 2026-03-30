@@ -33,13 +33,13 @@ public class Peleador {
     private Integer defensa;
 
     //Record de peleas
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "int default 0")
     private Integer victorias = 0;
 
-    @Column (nullable = false)
+    @Column (nullable = false, columnDefinition = "int default 0")
     private Integer derrotas = 0;
 
-    @Column (nullable = false)
+    @Column (nullable = false, columnDefinition = "int default 0")
     private Integer empates = 0;
 
     @Column(nullable = false)

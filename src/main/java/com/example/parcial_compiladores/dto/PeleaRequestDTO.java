@@ -12,27 +12,13 @@ import java.time.LocalDateTime;
  */
 @Data
 public class PeleaRequestDTO {
-    @NotNull
-    @Min(1)
-    private Long peleaId;
-
     @NotNull(message = "El ID del peleador 1 es obligatorio")
     @Min(1)
     private Long peleador1Id;  // ID del primer peleador
 
-    @NotNull(message = "El peleador 1 debe tener puntos")
-    @Min(0)
-    @Max(100)
-    private Integer puntosPeleador1;
-
     @NotNull(message = "El ID del peleador 2 es obligatorio")
     @Min(1)
     private Long peleador2Id;  // ID del segundo peleador
-
-    @NotNull(message = "El peleador 2 debe tener puntos")
-    @Min(0)
-    @Max(100)
-    private Integer puntosPeleador2;
 
     @NotNull(message = "La fecha es obligatoria")
     @FutureOrPresent(message = "La fecha no puede ser en el pasado")

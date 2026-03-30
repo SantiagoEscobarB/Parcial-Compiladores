@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface PeleadorRepository extends JpaRepository<Peleador, Long> {
     // Buscar por nombre exacto
-    Optional<Peleador> findByNombre(String nombre);
+    Optional<Peleador> findByNombreIgnoreCase(String nombre);
 
     // Buscar por alias
     Optional<Peleador> findByAlias(String alias);

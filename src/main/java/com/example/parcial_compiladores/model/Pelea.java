@@ -26,14 +26,14 @@ public class Pelea {
     private Peleador peleador2;
 
     @ManyToOne //Un peleador puede ganar muchas peleas
-    @JoinColumn (name = "ganador")
+    @JoinColumn (name = "ganador_id")
     private Peleador ganador;
 
     @Column (name = "puntos_p1")
-    private Integer puntosPeleador1;
+    private Integer puntosPeleador1 = 0;
 
     @Column (name = "puntos_p2")
-    private Integer puntosPeleador2;
+    private Integer puntosPeleador2 = 0;
 
     @Column(nullable = false)
     private LocalDateTime fecha;

@@ -12,51 +12,50 @@ import java.util.List;
 
 @Service
 public class PeleadorService {
+    @Autowired
+    private PeleadorRepository peleadorRepository;
 
     public PeleadorResponseDTO guardar(PeleadorRequestDTO dto) {
         Peleador peleador = PeleadorMapper.toEntity(dto);
+        peleador.setVictorias(0);
+        peleador.setDerrotas(0);
+        peleador.setEmpates(0);
         Peleador guardado = peleadorRepository.save(peleador);
-        return PeleadorMapper.toDTO(guardado);
+        return PeleadorMapper.toResponseDTO(guardado);
     }
 
     public List<PeleadorResponseDTO> listar() {
         return peleadorRepository.findAll()
                 .stream()
-                .map(PeleadorMapper::toDTO)
+                .map(PeleadorMapper::toResponseDTO)
                 .toList();
     }
 
     public PeleadorResponseDTO buscarPorId(Long id) {
         Peleador peleador = peleadorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Peleador no encontrado"));
-        return PeleadorMapper.toDTO(peleador);
+        return PeleadorMapper.toResponseDTO(peleador);
     }
 
     public PeleadorResponseDTO actualizar(Long id, PeleadorRequestDTO dto) {
         Peleador peleador = peleadorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Peleador no encontrado"));
 
+        // Solo actualizamos campos informativos y de balance
         peleador.setNombre(dto.getNombre());
         peleador.setAlias(dto.getAlias());
         peleador.setBiografia(dto.getBiografia());
         peleador.setHistoriaFondo(dto.getHistoriaFondo());
         peleador.setAtaque(dto.getAtaque());
         peleador.setDefensa(dto.getDefensa());
-
-        peleador.setVictorias(dto.getVictorias());
-        peleador.setDerrotas(dto.getDerrotas());
-        peleador.setEmpates(dto.getEmpates());
-
         peleador.setActivo(dto.getActivo());
 
-        Peleador actualizado = peleadorRepository.save(peleador);
-        return PeleadorMapper.toDTO(actualizado);
+        // NO tocamos victorias, derrotas ni empates aquí.
+
+        return PeleadorMapper.toResponseDTO(peleadorRepository.save(peleador));
     }
 
     public void eliminar(Long id) {
         peleadorRepository.deleteById(id);
     }
-
-    @Autowired
-    private PeleadorRepository peleadorRepository;
 }

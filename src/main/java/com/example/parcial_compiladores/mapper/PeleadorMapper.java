@@ -30,10 +30,8 @@ public class PeleadorMapper {
 
     public static Peleador toEntity(PeleadorRequestDTO dto) {
         if (dto == null) return null;
-
         Peleador peleador = new Peleador();
 
-        peleador.setId(dto.getPeleadorId());
         peleador.setNombre(dto.getNombre());
         peleador.setAlias(dto.getAlias());
         peleador.setBiografia(dto.getBiografia());
@@ -41,13 +39,7 @@ public class PeleadorMapper {
 
         peleador.setAtaque(dto.getAtaque());
         peleador.setDefensa(dto.getDefensa());
-
-        peleador.setVictorias(dto.getVictorias());
-        peleador.setDerrotas(dto.getDerrotas());
-        peleador.setEmpates(dto.getEmpates());
-
         peleador.setActivo(dto.getActivo());
-
         return peleador;
     }
 }
