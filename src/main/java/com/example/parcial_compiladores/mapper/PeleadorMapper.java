@@ -6,7 +6,7 @@ import com.example.parcial_compiladores.model.Peleador;
 
 public class PeleadorMapper {
 
-    public static PeleadorResponseDTO toDTO(Peleador peleador) {
+    public static PeleadorResponseDTO toResponseDTO(Peleador peleador) {
         if (peleador == null) return null;
 
         PeleadorResponseDTO dto = new PeleadorResponseDTO();

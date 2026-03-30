@@ -43,8 +43,8 @@ public class PeleaMapper {
         pelea.setPeleador2(p2);
         pelea.setGanador(ganador);
 
-        pelea.setPuntosPeleador1();
-        pelea.setPuntosPeleador2(dto.getPuntos_p2());
+        pelea.setPuntosPeleador1(dto.getPuntosPeleador1());
+        pelea.setPuntosPeleador2(dto.getPuntosPeleador2());
 
         pelea.setFecha(dto.getFecha());
 
