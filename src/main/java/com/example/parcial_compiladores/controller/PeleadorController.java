@@ -6,6 +6,7 @@ import com.example.parcial_compiladores.service.PeleadorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,11 +30,13 @@ public class PeleadorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public PeleadorResponseDTO crear(@Valid @RequestBody PeleadorRequestDTO dto) {
         return peleadorService.guardar(dto);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public PeleadorResponseDTO actualizar(@PathVariable Long id, @Valid @RequestBody PeleadorRequestDTO dto) {
         return peleadorService.actualizar(id, dto);
     }

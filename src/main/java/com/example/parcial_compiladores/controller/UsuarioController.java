@@ -5,6 +5,7 @@ import com.example.parcial_compiladores.dto.UsuarioResponseDTO;
 import com.example.parcial_compiladores.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/usuarios")
@@ -14,6 +15,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("/registro")
+    @PreAuthorize("hasRole('ADMIN')")
     public UsuarioResponseDTO registrar(@Valid @RequestBody UsuarioRequestDTO dto) {
         return usuarioService.guardar(dto);
     }
@@ -24,6 +26,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void eliminar(@PathVariable Long id) {
         usuarioService.eliminar(id);
     }
