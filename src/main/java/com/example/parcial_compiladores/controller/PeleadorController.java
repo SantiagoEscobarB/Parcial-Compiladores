@@ -30,13 +30,11 @@ public class PeleadorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
     public PeleadorResponseDTO crear(@Valid @RequestBody PeleadorRequestDTO dto) {
         return peleadorService.guardar(dto);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public PeleadorResponseDTO actualizar(@PathVariable Long id, @Valid @RequestBody PeleadorRequestDTO dto) {
         return peleadorService.actualizar(id, dto);
     }

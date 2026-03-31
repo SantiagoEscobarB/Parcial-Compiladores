@@ -18,9 +18,7 @@ public class PeleaController {
     private PeleaService peleaService;
 
     @PostMapping("/simular")
-    @PreAuthorize("hasRole('ADMIN')")
     public PeleaResponseDTO simular(@RequestBody PeleaRequestDTO dto) {
-        // Usamos RequestParam para enviar los IDs en la URL: ?p1Id=1&p2Id=2
         return peleaService.simularPelea(dto.getPeleador1Id(), dto.getPeleador2Id());
     }
 
