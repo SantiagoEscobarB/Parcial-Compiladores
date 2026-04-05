@@ -26,4 +26,8 @@ public class PeleaController {
     public List<PeleaResponseDTO> historial() {
         return peleaService.listar();
     }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id){
+        peleaService.eliminar(id);
+    }
 }
