@@ -34,11 +34,6 @@ public class PeleaController {
         return peleaService.buscarPorId(id);
     }
 
-    @PutMapping
-    public PeleaResponseDTO actualizar(@PathVariable Long id, @Valid @RequestBody PeleadorRequestDTO dto) {
-        peleaService.
-    }
-
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id){
         peleaService.eliminar(id);
