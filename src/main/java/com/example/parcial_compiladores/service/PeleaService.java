@@ -1,5 +1,6 @@
 package com.example.parcial_compiladores.service;
 
+import com.example.parcial_compiladores.dto.PeleaRequestDTO;
 import com.example.parcial_compiladores.dto.PeleaResponseDTO;
 import com.example.parcial_compiladores.mapper.PeleaMapper;
 import com.example.parcial_compiladores.model.Pelea;
@@ -30,7 +31,7 @@ public class PeleaService {
         Random random = new Random();
 
         int poder1 = p1.getAtaque() + p1.getDefensa();
-        int poder2 = p1.getAtaque() + p1.getDefensa();
+        int poder2 = p2.getAtaque() + p2.getDefensa();
         int rand1 = random.nextInt(20);
         int rand2 = random.nextInt(20);
         int puntos1 = poder1 + rand1;
@@ -73,7 +74,6 @@ public class PeleaService {
 
         return PeleaMapper.toResponseDTO(pelea);
     }
-
     public void eliminar(Long id) {
         peleaRepository.deleteById(id);
     }

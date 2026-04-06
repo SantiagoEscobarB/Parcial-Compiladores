@@ -40,8 +40,6 @@ public class PeleadorService {
     public PeleadorResponseDTO actualizar(Long id, PeleadorRequestDTO dto) {
         Peleador peleador = peleadorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Peleador no encontrado"));
-
-        // Solo actualizamos campos informativos y de balance
         peleador.setNombre(dto.getNombre());
         peleador.setAlias(dto.getAlias());
         peleador.setBiografia(dto.getBiografia());
@@ -49,8 +47,6 @@ public class PeleadorService {
         peleador.setAtaque(dto.getAtaque());
         peleador.setDefensa(dto.getDefensa());
         peleador.setActivo(dto.getActivo());
-
-        // NO tocamos victorias, derrotas ni empates aquí.
 
         return PeleadorMapper.toResponseDTO(peleadorRepository.save(peleador));
     }

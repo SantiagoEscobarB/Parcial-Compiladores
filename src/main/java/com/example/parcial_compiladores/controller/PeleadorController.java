@@ -38,4 +38,10 @@ public class PeleadorController {
     public PeleadorResponseDTO actualizar(@PathVariable Long id, @Valid @RequestBody PeleadorRequestDTO dto) {
         return peleadorService.actualizar(id, dto);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id) {
+        peleadorService.eliminar(id);
+        return;
+    }
 }
